@@ -18,3 +18,19 @@ if not _G.MainMenuBar then
         Compat.MarkShimApplied("MainMenuBar")
     end
 end
+
+-- Legacy MainMenuBarArtFrame shim for older addons.
+if not _G.MainMenuBarArtFrame and _G.MainMenuBar then
+	_G.MainMenuBarArtFrame = _G.MainMenuBar
+end
+
+-- Some older code expects a PageNumber field on MainMenuBarArtFrame.
+do
+	local pageText =
+		_G.MainMenuBarPageNumber
+		or (_G.MainMenuBar and _G.MainMenuBar.ActionBarPageNumber and _G.MainMenuBar.ActionBarPageNumber.Text)
+
+	if _G.MainMenuBarArtFrame and pageText and not _G.MainMenuBarArtFrame.PageNumber then
+		_G.MainMenuBarArtFrame.PageNumber = pageText
+	end
+end
