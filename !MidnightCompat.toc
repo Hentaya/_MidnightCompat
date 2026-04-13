@@ -2,8 +2,10 @@
 ## Title: MidnightCompat
 ## Notes: Provides legacy globals and API shims for old addons on Midnight.
 ## Author: Hentaya
-## Version: 1.1
+## Version: 1.2
+## SavedVariables: MidnightCompatDebugDB
 
 Compat_Core.lua
 Compat_MainMenuBar.lua
 Compat_Merchant.lua
+Compat_SecretDebug.lua
